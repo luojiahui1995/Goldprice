@@ -55,11 +55,15 @@ class HiddenLayer:
 
     def regressor_test(self, test_x):
         b_row = test_x.shape[0]
-        h = self.sigmoid(np.dot(test_x, self.w) + self.b[:b_row, :])
+        b= self.first_b
+        for i in range(b_row - 1):
+            b = np.row_stack((b, self.first_b))  # row_stack 以叠加行的方式填充数组
+        #print(test_x.shape,self.w.shape,b_row, b1.shape)
+        h = self.sigmoid(np.dot(test_x, self.w) +b )
         result = np.dot(h, self.beta)
         return result
 
- #   def classifisor_test(self, test_x):
+    def classifisor_test(self, test_x):
         b_row = test_x.shape[0]
         h = self.sigmoid(np.dot(test_x, self.w) + self.b[:b_row, :])
         result = np.dot(h, self.beta)
