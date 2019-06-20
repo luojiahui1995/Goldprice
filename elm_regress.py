@@ -11,10 +11,10 @@ from ELM import HiddenLayer
 
 # 数据预处理
 stdsc = StandardScaler()
-data = pd.read_csv('gold_data.csv')
-x_dataframe = pd.read_csv('gold_data.csv', usecols=['settle'])#获取作为输入的数据
-y_dataframe = pd.read_csv('gold_data.csv', usecols=['settle'])#获取作为输出的数据
-
+data = pd.read_csv('gold_data_.csv')
+x_dataframe = pd.read_csv('gold_data_.csv', usecols=['settle'])#获取作为输入的数据
+y_dataframe = pd.read_csv('gold_data_.csv', usecols=['settle'])#获取作为输出的数据
+print(type(x_dataframe))
 x_origin = x_dataframe.as_matrix(columns=None)#输入矩阵
 y_origin = y_dataframe.as_matrix(columns=None)#输出矩阵
 
@@ -22,6 +22,8 @@ p_days = 1
 num_pastdays = 5
 num_data = x_origin.shape[0]
 y_ad = y_origin[num_pastdays+p_days-1:num_data]#去除前30天
+print(type(x_origin))
+print(type(y_origin))
 
 
 # y_ad = []#生成与前5日数据对应的当日输出数据
@@ -38,7 +40,8 @@ for i in range(num_data-num_pastdays+1-p_days):
     x_ad = np.append(x_ad, x_temp_single, axis=0)
 x_ad = np.delete(x_ad, 0, axis=0)
 
-
+print(x_ad)
+print(x_ad.shape)
 x = stdsc.fit_transform(x_ad)
 y = stdsc.fit_transform(y_ad)# 数据归一化
 num_xt=x.shape[0]-30

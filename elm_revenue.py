@@ -97,9 +97,7 @@ my_ELM = HiddenLayer(x_train,1000, C)
 beta1 = my_ELM.regressor_train(y_train)
 y_out = my_ELM.regressor_test(x_train)
 e1 = y_train - y_out
-print(beta1)
-print(beta1.shape)
-print(y_out)
+
 # num_x_test = x_test.shape[0]+1
 # x = list(range(1,num_x_test))#生成与测试集样本数相同的序列用来作为X轴画图
 # x_ = []

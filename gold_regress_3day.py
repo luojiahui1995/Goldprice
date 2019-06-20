@@ -11,9 +11,9 @@ from ELM import HiddenLayer
 
 # 数据预处理
 stdsc = StandardScaler()
-data = pd.read_csv('gold_data.csv')
-x_dataframe = pd.read_csv('gold_data.csv', usecols=['settle'])#获取作为输入的数据
-y_dataframe = pd.read_csv('gold_data.csv', usecols=['settle'])#获取作为输出的数据
+data = pd.read_csv('gold_data_.csv')
+x_dataframe = pd.read_csv('gold_data_.csv', usecols=['settle'])#获取作为输入的数据
+y_dataframe = pd.read_csv('gold_data_.csv', usecols=['settle'])#获取作为输出的数据
 
 x_origin = x_dataframe.as_matrix(columns=None)#输入矩阵
 y_origin = y_dataframe.as_matrix(columns=None)#输出矩阵
